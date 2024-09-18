@@ -59,3 +59,17 @@ class Band:
         """)
         band_id, _ = CURSOR.fetchone()
         return cls(band_id, *CURSOR.execute("SELECT name, hometown FROM bands WHERE id = ?", (band_id,)).fetchone())
+    
+# Defining Concert and Venue classes
+class Concert:
+      def __init__(self, id, band_name, venue_title, date):
+        self.id = id
+        self.band_name = band_name
+        self.venue_title = venue_title
+        self.date = date
+
+class Venue:
+     def __init__(self, id, title, city):
+        self.id = id
+        self.title = title
+        self.city = city
